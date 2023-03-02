@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public Transform player;
+    [SerializeField] private GameObject Pointer;
+
     public float speed = 300;
     Vector3 newPosition;
 
@@ -17,6 +19,7 @@ public class PlayerController : MonoBehaviour
     {
         player.position = Vector2.MoveTowards(player.position, newPosition, speed * Time.deltaTime);
         RandomPositionGenerator();
+        Pointer.transform.position = newPosition;
     }
 
     void RandomPositionGenerator()
